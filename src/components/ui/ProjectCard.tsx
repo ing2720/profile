@@ -1,5 +1,6 @@
 import type { Project } from "@/data/projects";
 import { Badge } from "./Badge";
+import { ButtonLink } from "./ButtonLink";
 
 type ProjectCardProps = {
   project: Project;
@@ -34,6 +35,10 @@ export function ProjectCard({ project }: ProjectCardProps) {
           </li>
         ))}
       </ul>
+
+      <div className="mt-6">
+        <ButtonLink href={`/projects/${project.slug}`}>상세 보기</ButtonLink>
+      </div>
     </article>
   );
 }
