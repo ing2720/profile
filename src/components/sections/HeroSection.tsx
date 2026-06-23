@@ -7,15 +7,15 @@ type HeroSectionProps = {
 
 export function HeroSection({ profile }: HeroSectionProps) {
   return (
-    <section className="mx-auto grid max-w-6xl gap-10 px-5 py-20 sm:px-6 sm:py-24 lg:grid-cols-[1.4fr_0.8fr] lg:px-8">
-      <div>
-        <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+    <section className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.35fr_0.85fr] lg:gap-12 lg:px-8">
+      <div className="min-w-0">
+        <p className="text-sm font-semibold uppercase text-slate-500">
           {profile.role}
         </p>
-        <h1 className="mt-4 text-4xl font-bold tracking-tight text-slate-950 sm:text-6xl">
+        <h1 className="mt-4 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl lg:text-6xl">
           {profile.name}
         </h1>
-        <p className="mt-6 max-w-2xl text-xl leading-8 text-slate-700">
+        <p className="mt-6 max-w-2xl text-lg leading-8 text-slate-700 sm:text-xl">
           {profile.summary}
         </p>
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
@@ -33,7 +33,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
         </div>
       </div>
 
-      <aside className="rounded-lg border border-slate-200 bg-slate-50 p-6">
+      <aside className="rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6">
         <p className="text-sm font-semibold text-slate-500">Focus</p>
         <dl className="mt-5 space-y-5">
           <div>

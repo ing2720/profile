@@ -46,14 +46,14 @@ export default function ResumePage() {
     <>
       <Header />
       <main className="bg-white">
-        <article className="mx-auto max-w-5xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <article className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 print:max-w-none print:px-0 print:py-0">
           <header className="border-b border-slate-200 pb-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div>
-                <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+              <div className="min-w-0">
+                <p className="text-sm font-semibold uppercase text-slate-500">
                   Web Resume
                 </p>
-                <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+                <h1 className="mt-3 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
                   {profile.name}
                 </h1>
                 <p className="mt-3 text-xl font-semibold text-slate-800">
@@ -63,7 +63,7 @@ export default function ResumePage() {
                   {profile.summary}
                 </p>
               </div>
-              <div className="flex flex-wrap gap-3 lg:justify-end">
+              <div className="flex flex-wrap gap-3 lg:justify-end print:hidden">
                 <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
                 <ButtonLink href={profile.links.email.href}>Email</ButtonLink>
                 <ButtonLink href={resumePdfHref} variant="primary">
@@ -114,13 +114,13 @@ export default function ResumePage() {
             <div className="grid gap-5 md:grid-cols-2">
               {skillCategories.map((category) => (
                 <section
-                  className="rounded-lg border border-slate-200 p-5"
+                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:border-slate-300"
                   key={category.category}
                 >
                   <h2 className="text-base font-bold text-slate-950">
                     {category.category}
                   </h2>
-                  <div className="mt-4 flex flex-wrap gap-2">
+                  <div className="mt-4 flex min-w-0 flex-wrap gap-2">
                     {category.skills.map((skill) => (
                       <Badge key={skill}>{skill}</Badge>
                     ))}
@@ -131,7 +131,7 @@ export default function ResumePage() {
           </DetailSection>
 
           <DetailSection title="프로젝트 경험">
-            <div className="grid gap-6 lg:grid-cols-2">
+            <div className="grid gap-5 lg:grid-cols-2 lg:gap-6">
               {orderedProjects.map((project) => (
                 <ProjectCard key={project.slug} project={project} />
               ))}
@@ -142,7 +142,7 @@ export default function ResumePage() {
             <div className="space-y-5">
               {experiences.map((experience) => (
                 <section
-                  className="rounded-lg border border-slate-200 p-5"
+                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:border-slate-300"
                   key={`${experience.organization}-${experience.title}`}
                 >
                   <p className="text-sm font-semibold text-slate-500">
@@ -158,7 +158,7 @@ export default function ResumePage() {
                     {experience.details.map((detail) => (
                       <li className="flex gap-3" key={detail}>
                         <span className="mt-2 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-                        <span>{detail}</span>
+                        <span className="min-w-0 break-words">{detail}</span>
                       </li>
                     ))}
                   </ul>
