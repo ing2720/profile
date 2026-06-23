@@ -20,15 +20,13 @@ export const profile: Profile = {
   summary:
     "백엔드 기반 서비스 설계와 자동화 제품 구현 경험을 쌓고 있는 개발자입니다.",
   links: {
-    // TODO: 실제 GitHub URL로 교체
     github: {
       label: "GitHub",
-      href: ""
+      href: "https://github.com/ing2720"
     },
-    // TODO: 실제 이메일 주소로 교체
     email: {
-      label: "Email",
-      href: ""
+      label: "ing2720@gmail.com",
+      href: "mailto:ing2720@gmail.com"
     },
     resumePdf: {
       label: "Resume PDF",
