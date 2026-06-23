@@ -19,7 +19,6 @@ export const metadata: Metadata = {
     url: "/",
     siteName: "이형운 Portfolio",
     locale: "ko_KR",
-    // TODO: public/og-image.png 파일 추가 후 실제 미리보기 이미지를 확인
     images: [
       {
         url: "/og-image.png",
@@ -33,7 +32,6 @@ export const metadata: Metadata = {
     card: "summary_large_image",
     title: "이형운 | Backend Developer",
     description: siteDescription,
-    // TODO: public/og-image.png 파일 추가 후 Twitter card 미리보기 확인
     images: ["/og-image.png"]
   },
   robots: {
