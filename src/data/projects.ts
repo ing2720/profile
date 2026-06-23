@@ -15,6 +15,7 @@ export type Project = {
   solution: string;
   features: string[];
   myRole: string[];
+  technicalDecisions?: string[];
   challenges: string[];
   improvements: string[];
   validations: string[];
@@ -44,46 +45,68 @@ export const projects: Project[] = [
       "TimelineBuilder 기반 일일 타임라인 생성",
       "Gemini 기반 리포트 생성",
       "민감정보 마스킹 후 AI 요약 요청",
-      "lightweight/full DMG 패키징 구조 설계"
+      "Release v1.1.0 기준 lightweight/full DMG 패키징 구조 정리"
     ],
     overview:
-      "Mwoham은 macOS 환경에서 작업 흐름을 로컬에 기록하고, 일일 타임라인과 리포트로 정리하는 작업 기록 자동화 서비스입니다.",
+      "Mwoham은 macOS에서 사용자의 작업 흐름, 회의 기록, 수동 메모를 로컬에서 수집하고 일일 리포트로 정리하는 작업 기록 자동화 앱입니다. SwiftUI macOS 앱이 사용자 인터페이스를 담당하고, FastAPI 로컬 백엔드가 작업 세션, 이벤트, 메모, 회의 기록, 리포트 도메인을 처리합니다.",
     problem:
-      "작업 기록이 메모, 회의 내용, 세션 로그로 흩어지면 하루 단위 회고와 보고서 작성에 반복 시간이 많이 듭니다.",
+      "개발, 학습, 회의 중 작업 기록은 앱 사용 흐름, 수동 메모, 회의 내용, 개발 이벤트로 흩어지기 쉽습니다. 하루가 끝난 뒤 실제로 무엇을 했는지 다시 정리하려면 여러 기록을 다시 찾아야 하고, 리포트 작성에도 반복 시간이 듭니다.",
     solution:
-      "로컬 FastAPI 백엔드와 SwiftUI 앱을 연동해 작업 이벤트를 저장하고, TimelineBuilder와 AI 요약 흐름으로 기록을 리포트 형태로 정리했습니다.",
+      "작업 세션, 앱/창 이벤트, 수동 메모, 회의 STT 기록을 하나의 일일 타임라인으로 합치고, TimelineBuilder로 흐름을 정리한 뒤 Gemini 요약을 통해 리포트 초안을 생성합니다. 원본 화면이나 음성 파일을 장기 저장하는 방식보다 로컬 텍스트 기록을 중심에 두고, AI 요청 전 민감정보 마스킹을 적용했습니다.",
     features: [
-      "작업 세션, 이벤트, 메모, 회의 기록 저장",
-      "STT 기반 회의 기록 흐름",
-      "일일 타임라인 생성",
-      "Gemini 기반 리포트 초안 생성",
-      "민감정보 마스킹 후 AI 요청",
-      "컴포넌트 설치 상태 관리",
+      "작업 세션 시작, 일시정지, 재개, 종료 흐름",
+      "앱/창 기반 작업 이벤트 기록",
+      "수동 메모 기록",
+      "회의 STT 기록",
+      "TimelineBuilder 기반 일일 타임라인 생성",
+      "Gemini 기반 일일 리포트 생성",
+      "AI 요청 전 민감정보 마스킹",
+      "macOS SwiftUI 앱과 FastAPI 로컬 백엔드 연동",
       "lightweight/full DMG 패키징",
-      "체크섬 검증을 통한 패키징 산출물 확인"
+      "컴포넌트 설치 상태 관리",
+      "checksum 검증",
+      "staging/final 경로 분리"
     ],
     myRole: [
-      "FastAPI 기반 로컬 백엔드 구조 설계",
-      "SQLite와 Alembic 기반 저장 구조 구성",
-      "SwiftUI macOS 앱과 로컬 백엔드 연동 흐름 설계",
-      "AI 요약 요청 전 개인정보 필터링 흐름 구현",
-      "DMG 패키징과 배포 경로 분리 구조 설계"
+      "서비스 요구사항 정리",
+      "FastAPI 로컬 백엔드 API 설계",
+      "작업 세션, 이벤트, 메모, 리포트 도메인 설계",
+      "TimelineBuilder 흐름 구성",
+      "Gemini 요약 연동 및 fallback 흐름 구성",
+      "SwiftUI macOS 앱과 로컬 API 연동",
+      "lightweight/full DMG 배포 구조 설계",
+      "Release v1.1.0 기준 패키징/설치 안정화"
+    ],
+    technicalDecisions: [
+      "작업 기록과 회의 텍스트가 외부 서버에 먼저 의존하지 않도록 로컬 우선 구조를 선택",
+      "macOS 앱에서 HTTP API로 명확하게 호출할 수 있고 테스트하기 쉬운 FastAPI를 로컬 백엔드로 사용",
+      "초기 개인용 로컬 저장소로 운영 부담이 낮고 파일 기반 배포에 맞는 SQLite를 선택",
+      "AI 요약 요청 전에 민감정보 마스킹 단계를 두어 외부 모델에 전달되는 텍스트 범위를 줄임",
+      "사용 환경에 따라 런타임 포함 범위를 다르게 가져갈 수 있도록 full/lightweight 패키징을 분리",
+      "다운로드 또는 설치 중간 산출물이 기존 정상 설치본을 덮어쓰지 않도록 staging/final 경로를 분리"
     ],
     challenges: [
-      "로컬 앱과 백엔드 프로세스의 실행 상태를 안정적으로 맞추는 문제",
-      "AI 요약 요청 전에 민감정보를 최대한 제거해야 하는 문제",
-      "개발 산출물과 배포 산출물의 경로가 섞이지 않도록 관리하는 문제"
+      "macOS 권한/보안 설정 흐름을 사용자가 따라갈 수 있게 정리하는 문제",
+      "SwiftUI 앱에서 로컬 백엔드 실행 경로와 상태를 안정적으로 맞추는 문제",
+      "DMG 배포 시 backend, STT, model 번들링 방식을 full/lightweight로 분리하는 문제",
+      "설치 중 partial download가 final 경로에 섞이지 않도록 막는 문제",
+      "업데이트 또는 재설치 중 기존 정상 설치본을 보존하는 문제",
+      "AI 요약에 전달할 텍스트 범위와 민감정보 처리 기준을 정하는 문제"
     ],
     improvements: [
-      "수동 메모 중심 기록에서 세션과 이벤트 기반 기록 구조로 개선",
-      "흩어진 작업 기록을 일일 타임라인으로 재구성",
-      "패키징 산출물을 lightweight/full 유형으로 분리"
+      "수동으로 흩어지던 기록을 작업 세션과 이벤트 중심의 타임라인으로 정리",
+      "하루 기록을 직접 다시 모으던 흐름을 TimelineBuilder와 AI 보조 요약 흐름으로 개선",
+      "macOS 앱 배포를 단순 번들 방식에서 lightweight/full DMG 구조로 정리",
+      "컴포넌트 설치를 단순 복사에서 checksum 검증, staging/final 이동 구조로 개선"
     ],
     validations: [
-      "pytest 기반 백엔드 테스트",
+      "backend pytest",
       "ruff 기반 정적 검사",
-      "체크섬 검증을 통한 패키징 산출물 확인",
-      "staging/final 경로 분리 확인"
+      "macOS 앱 빌드 확인",
+      "STT readiness 확인",
+      "release resource check",
+      "DMG 설치 흐름 확인",
+      "/health 기반 로컬 백엔드 상태 확인"
     ],
     nextImprovements: [
       "실제 사용 흐름 기준으로 회의 기록 편집 UX 보완",
@@ -186,7 +209,7 @@ export const projects: Project[] = [
       "프로젝트 상세 페이지 중심 구조",
       "반응형 UI 구성",
       "웹 이력서와 브라우저 PDF 저장 흐름",
-      "Vercel 배포 예정",
+      "Vercel 배포 및 자동 배포 흐름 구성",
       "SEO 고도화 예정"
     ],
     overview:
@@ -201,14 +224,14 @@ export const projects: Project[] = [
       "모바일 대응 반응형 레이아웃",
       "웹 이력서 페이지 제공 예정",
       "브라우저 인쇄 기반 PDF 저장 지원",
-      "Vercel 정적 배포 예정",
+      "Vercel 배포 및 Git 연동 자동 배포 흐름 구성",
       "SEO 메타데이터 고도화 예정"
     ],
     myRole: [
       "Next.js 프로젝트 구조 구성",
       "포트폴리오 콘텐츠 데이터 모델링",
-      "Tailwind CSS 기반 UI 구현 예정",
-      "Vercel 배포 흐름 구성 예정"
+      "Tailwind CSS 기반 UI 구현",
+      "Vercel 배포 흐름 구성"
     ],
     challenges: [
       "콘텐츠를 페이지에 직접 하드코딩하지 않고 재사용 가능한 데이터로 분리하는 문제",

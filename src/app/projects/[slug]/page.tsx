@@ -124,6 +124,12 @@ export default async function ProjectDetailPage({
             <DetailList items={project.myRole} />
           </DetailSection>
 
+          {project.technicalDecisions ? (
+            <DetailSection title="Technical Decisions">
+              <DetailList items={project.technicalDecisions} />
+            </DetailSection>
+          ) : null}
+
           <DetailSection title="Challenges">
             <DetailList items={project.challenges} />
           </DetailSection>
