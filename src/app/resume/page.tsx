@@ -1,11 +1,10 @@
 import type { Metadata } from "next";
-import { existsSync } from "node:fs";
-import { join } from "node:path";
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { DetailSection } from "@/components/ui/DetailSection";
+import { PrintButton } from "@/components/ui/PrintButton";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { experiences } from "@/data/experiences";
 import { profile } from "@/data/profile";
@@ -38,10 +37,6 @@ function getDisplayValue(href: string, fallback: string) {
 }
 
 export default function ResumePage() {
-  // TODO: public/resume.pdf 파일이 추가되면 아래 버튼이 자동으로 활성화됩니다.
-  const hasResumePdf = existsSync(join(process.cwd(), "public", "resume.pdf"));
-  const resumePdfHref = hasResumePdf ? profile.links.resumePdf.href : undefined;
-
   return (
     <>
       <Header />
@@ -66,9 +61,7 @@ export default function ResumePage() {
               <div className="flex flex-wrap gap-3 lg:justify-end print:hidden">
                 <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
                 <ButtonLink href={profile.links.email.href}>Email</ButtonLink>
-                <ButtonLink href={resumePdfHref} variant="primary">
-                  PDF 다운로드
-                </ButtonLink>
+                <PrintButton>PDF로 저장</PrintButton>
               </div>
             </div>
 
@@ -86,9 +79,9 @@ export default function ResumePage() {
                 </dd>
               </div>
               <div className="rounded-lg border border-slate-200 p-4">
-                <dt className="font-semibold text-slate-950">PDF Resume</dt>
+                <dt className="font-semibold text-slate-950">PDF 저장</dt>
                 <dd className="mt-2 break-words text-slate-600">
-                  {hasResumePdf ? profile.links.resumePdf.href : "준비 중"}
+                  브라우저 인쇄 기능으로 저장
                 </dd>
               </div>
             </dl>
@@ -114,7 +107,7 @@ export default function ResumePage() {
             <div className="grid gap-5 md:grid-cols-2">
               {skillCategories.map((category) => (
                 <section
-                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:border-slate-300"
+                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:break-inside-avoid print:border-slate-300"
                   key={category.category}
                 >
                   <h2 className="text-base font-bold text-slate-950">
@@ -142,7 +135,7 @@ export default function ResumePage() {
             <div className="space-y-5">
               {experiences.map((experience) => (
                 <section
-                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:border-slate-300"
+                  className="min-w-0 rounded-lg border border-slate-200 p-5 print:break-inside-avoid print:border-slate-300"
                   key={`${experience.organization}-${experience.title}`}
                 >
                   <p className="text-sm font-semibold text-slate-500">
@@ -167,14 +160,16 @@ export default function ResumePage() {
             </div>
           </DetailSection>
 
-          <DetailSection title="링크">
-            <div className="flex flex-wrap gap-3">
-              <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
-              <ButtonLink href={profile.links.email.href}>Email</ButtonLink>
-              <ButtonLink href="/projects">프로젝트 페이지</ButtonLink>
-              <ButtonLink href={resumePdfHref}>PDF Resume</ButtonLink>
-            </div>
-          </DetailSection>
+          <div className="print:hidden">
+            <DetailSection title="링크">
+              <div className="flex flex-wrap gap-3">
+                <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
+                <ButtonLink href={profile.links.email.href}>Email</ButtonLink>
+                <ButtonLink href="/projects">프로젝트 페이지</ButtonLink>
+                <PrintButton>인쇄/PDF 저장</PrintButton>
+              </div>
+            </DetailSection>
+          </div>
         </article>
       </main>
       <Footer />
