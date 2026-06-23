@@ -25,6 +25,16 @@ body {
   }
 
   body {
+    background: #ffffff;
     font-size: 12px;
+  }
+
+  main {
+    background: #ffffff !important;
+  }
+
+  a,
+  button {
+    box-shadow: none !important;
   }
 }

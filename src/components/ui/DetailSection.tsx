@@ -5,7 +5,7 @@ type DetailSectionProps = {
 
 export function DetailSection({ title, children }: DetailSectionProps) {
   return (
-    <section className="border-t border-slate-200 py-7 sm:py-8">
+    <section className="border-t border-slate-200 py-7 print:break-inside-avoid print:py-4 sm:py-8">
       <h2 className="text-xl font-bold leading-7 text-slate-950">{title}</h2>
       <div className="mt-4 min-w-0 text-base leading-8 text-slate-700">
         {children}

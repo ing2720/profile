@@ -29,8 +29,8 @@ export const profile: Profile = {
       href: "mailto:ing2720@gmail.com"
     },
     resumePdf: {
-      label: "Resume PDF",
-      href: "/resume.pdf"
+      label: "Resume",
+      href: "/resume"
     }
   }
 };

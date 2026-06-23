@@ -8,7 +8,7 @@ type ProjectCardProps = {
 
 export function ProjectCard({ project }: ProjectCardProps) {
   return (
-    <article className="flex h-full min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm sm:p-6">
+    <article className="flex h-full min-w-0 flex-col rounded-lg border border-slate-200 bg-white p-5 shadow-sm print:break-inside-avoid print:shadow-none sm:p-6">
       <div className="min-w-0">
         <p className="text-sm font-semibold text-slate-500">
           {project.slug === "mwoham" ? "Main Project" : "Featured Project"}

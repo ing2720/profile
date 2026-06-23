@@ -85,11 +85,10 @@ public/
 
 ## 정적 파일
 
-- `public/resume.pdf` - PDF 이력서 파일 위치
 - `public/og-image.png` - Open Graph / Twitter card 기본 이미지 위치
 - `public/images/` - 프로젝트 또는 페이지에서 사용할 이미지 위치
 
-`resume.pdf`는 아직 없을 수 있습니다. 파일을 추가하면 현재 링크 설정에서 사용할 수 있습니다.
+이력서는 `/resume` 페이지에서 브라우저 인쇄 기능으로 PDF 저장할 수 있습니다. 별도 `public/resume.pdf` 파일은 필요하지 않습니다.
 
 ## 환경변수
 
@@ -99,7 +98,6 @@ public/
 
 ## TODO
 
-- `public/resume.pdf` 추가
 - 커스텀 도메인 연결 시 metadata, robots, sitemap의 `siteUrl` 교체
 - 프로젝트별 실제 GitHub/Demo 링크 입력
 - 배포 후 모바일, 태블릿, 데스크톱 화면 최종 확인
@@ -112,6 +110,6 @@ public/
 - [ ] `/`, `/projects`, `/projects/mwoham`, `/projects/django-commerce`, `/projects/portfolio`, `/resume` 확인
 - [ ] `/robots.txt`, `/sitemap.xml` 확인
 - [ ] GitHub/Email 링크 확인
-- [ ] `public/resume.pdf` 존재 여부 확인
+- [ ] `/resume`에서 `PDF로 저장` 버튼 확인
 - [ ] 커스텀 도메인을 연결하면 `https://profile-sable-alpha.vercel.app` 값 교체
 - [ ] Vercel 배포 URL에서 주요 페이지 재확인
