@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import "./globals.css";
 
-const siteUrl = "https://example.com"; // TODO: 실제 배포 도메인으로 교체
+const siteUrl = "https://profile-sable-alpha.vercel.app"; // TODO: 커스텀 도메인 연결 시 교체
 const siteDescription =
   "FastAPI, Django, macOS 로컬 자동화 서비스를 중심으로 백엔드 기반 제품을 구현하는 개발자 포트폴리오입니다.";
 

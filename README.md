@@ -41,6 +41,8 @@ npm run build
 
 ## Vercel 배포 방법
 
+배포 URL: https://profile-sable-alpha.vercel.app
+
 1. GitHub 저장소에 변경 사항을 push합니다.
 2. Vercel에서 New Project를 생성하고 GitHub 저장소를 연결합니다.
 3. Framework Preset은 `Next.js`를 선택합니다.
@@ -48,7 +50,7 @@ npm run build
 5. Build Command는 `npm run build`를 사용합니다.
 6. Output Directory는 Vercel 기본값을 사용합니다.
 7. 배포 후 생성된 실제 URL에서 주요 페이지를 확인합니다.
-8. 실제 도메인이 생기면 `src/app/layout.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`의 `https://example.com` TODO를 실제 도메인으로 교체합니다.
+8. 커스텀 도메인을 연결하면 `src/app/layout.tsx`, `src/app/robots.ts`, `src/app/sitemap.ts`의 `https://profile-sable-alpha.vercel.app` 값을 커스텀 도메인으로 교체합니다.
 
 현재 구조는 Next.js 기본 Vercel 배포로 충분하므로 별도 `vercel.json`은 사용하지 않습니다.
 
@@ -99,7 +101,7 @@ public/
 
 - `public/resume.pdf` 추가
 - `public/og-image.png` 추가
-- 실제 배포 도메인 확정 후 metadata, robots, sitemap의 `siteUrl` 교체
+- 커스텀 도메인 연결 시 metadata, robots, sitemap의 `siteUrl` 교체
 - 프로젝트별 실제 GitHub/Demo 링크 입력
 - 배포 후 모바일, 태블릿, 데스크톱 화면 최종 확인
 
@@ -113,5 +115,5 @@ public/
 - [ ] GitHub/Email 링크 확인
 - [ ] `public/resume.pdf` 존재 여부 확인
 - [ ] `public/og-image.png` 존재 여부 확인
-- [ ] 실제 도메인이 있으면 `https://example.com` TODO 교체
+- [ ] 커스텀 도메인을 연결하면 `https://profile-sable-alpha.vercel.app` 값 교체
 - [ ] Vercel 배포 URL에서 주요 페이지 재확인
