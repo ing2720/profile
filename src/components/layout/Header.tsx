@@ -3,8 +3,7 @@ import { profile } from "@/data/profile";
 
 const navigationItems = [
   { label: "Projects", href: "/projects" },
-  // TODO: /resume 페이지 구현 전까지 PDF 링크를 직접 사용합니다.
-  { label: "Resume", href: profile.links.resumePdf.href },
+  { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/#contact" }
 ];
 
