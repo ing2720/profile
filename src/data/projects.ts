@@ -227,15 +227,13 @@ export const projects: Project[] = [
       "SEO 메타데이터와 오픈그래프 이미지 구성"
     ],
     links: [
-      // TODO: 배포 URL로 교체
-      {
-        label: "Website",
-        href: ""
-      },
-      // TODO: 실제 저장소 URL로 교체
       {
         label: "GitHub",
-        href: ""
+        href: "https://github.com/ing2720/profile"
+      },
+      {
+        label: "Demo",
+        href: "https://profile-sable-alpha.vercel.app"
       }
     ]
   }
