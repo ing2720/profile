@@ -1,15 +1,41 @@
+import { Footer } from "@/components/layout/Footer";
+import { Header } from "@/components/layout/Header";
+import { AboutSection } from "@/components/sections/AboutSection";
+import { ContactSection } from "@/components/sections/ContactSection";
+import { ExperienceSection } from "@/components/sections/ExperienceSection";
+import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
+import { HeroSection } from "@/components/sections/HeroSection";
+import { SkillsSection } from "@/components/sections/SkillsSection";
+import { experiences } from "@/data/experiences";
+import { profile } from "@/data/profile";
+import { featuredProjects } from "@/data/projects";
+import { skillCategories } from "@/data/skills";
+
+const orderedFeaturedProjects = [...featuredProjects].sort((a, b) => {
+  if (a.slug === "mwoham") {
+    return -1;
+  }
+
+  if (b.slug === "mwoham") {
+    return 1;
+  }
+
+  return 0;
+});
+
 export default function Home() {
   return (
-    <main className="flex min-h-screen items-center justify-center bg-slate-950 px-6 text-slate-50">
-      <section className="w-full max-w-3xl">
-        <p className="mb-4 text-sm font-medium uppercase tracking-wide text-sky-300">
-          Backend Developer
-        </p>
-        <h1 className="text-4xl font-semibold sm:text-6xl">이형운</h1>
-        <p className="mt-6 text-lg leading-8 text-slate-300">
-          Portfolio site is being built.
-        </p>
-      </section>
-    </main>
+    <>
+      <Header />
+      <main>
+        <HeroSection profile={profile} />
+        <AboutSection profile={profile} />
+        <FeaturedProjectsSection projects={orderedFeaturedProjects} />
+        <SkillsSection skillCategories={skillCategories} />
+        <ExperienceSection experiences={experiences} />
+        <ContactSection profile={profile} />
+      </main>
+      <Footer />
+    </>
   );
 }
