@@ -147,7 +147,7 @@ export default async function ProjectDetailPage({
               </div>
             ) : (
               <p className="text-slate-500">
-                실제 저장소와 데모 링크는 준비되는 대로 추가할 예정입니다.
+                관련 링크는 준비되는 대로 추가할 예정입니다.
               </p>
             )}
           </DetailSection>
