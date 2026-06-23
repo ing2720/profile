@@ -18,6 +18,7 @@ export type Project = {
   challenges: string[];
   improvements: string[];
   validations: string[];
+  nextImprovements: string[];
   links: ProjectLink[];
 };
 
@@ -53,11 +54,13 @@ export const projects: Project[] = [
       "로컬 FastAPI 백엔드와 SwiftUI 앱을 연동해 작업 이벤트를 저장하고, TimelineBuilder와 AI 요약 흐름으로 기록을 리포트 형태로 정리했습니다.",
     features: [
       "작업 세션, 이벤트, 메모, 회의 기록 저장",
+      "STT 기반 회의 기록 흐름",
       "일일 타임라인 생성",
       "Gemini 기반 리포트 초안 생성",
       "민감정보 마스킹 후 AI 요청",
       "컴포넌트 설치 상태 관리",
-      "lightweight/full DMG 패키징"
+      "lightweight/full DMG 패키징",
+      "체크섬 검증을 통한 패키징 산출물 확인"
     ],
     myRole: [
       "FastAPI 기반 로컬 백엔드 구조 설계",
@@ -81,6 +84,11 @@ export const projects: Project[] = [
       "ruff 기반 정적 검사",
       "체크섬 검증을 통한 패키징 산출물 확인",
       "staging/final 경로 분리 확인"
+    ],
+    nextImprovements: [
+      "실제 사용 흐름 기준으로 회의 기록 편집 UX 보완",
+      "리포트 템플릿 선택 기능 추가 검토",
+      "설치 상태 점검 메시지와 복구 안내 개선"
     ],
     links: [
       // TODO: 실제 저장소 URL로 교체
@@ -153,6 +161,11 @@ export const projects: Project[] = [
       "Docker 개발 환경 실행 확인",
       "인증과 배송 추적 주요 흐름 점검"
     ],
+    nextImprovements: [
+      "배송 추적 응답 포맷 정리",
+      "주요 API 테스트 케이스 보강",
+      "Docker 기반 로컬 실행 문서 개선"
+    ],
     links: [
       // TODO: 실제 저장소 URL로 교체
       {
@@ -170,8 +183,10 @@ export const projects: Project[] = [
     highlights: [
       "정적 데이터 기반 콘텐츠 관리",
       "프로젝트 상세 페이지 중심 구조",
+      "반응형 UI 구성",
       "웹 이력서와 PDF 다운로드 제공 예정",
-      "Vercel 배포 예정"
+      "Vercel 배포 예정",
+      "SEO 고도화 예정"
     ],
     overview:
       "Portfolio Website는 백엔드 개발 경험과 프로젝트 내용을 정리하기 위한 Next.js 기반 정적 포트폴리오 사이트입니다.",
@@ -182,9 +197,11 @@ export const projects: Project[] = [
     features: [
       "정적 콘텐츠 데이터 관리",
       "프로젝트 목록과 상세 페이지 제공 예정",
+      "모바일 대응 반응형 레이아웃",
       "웹 이력서 페이지 제공 예정",
       "PDF 이력서 다운로드 제공 예정",
-      "Vercel 정적 배포 예정"
+      "Vercel 정적 배포 예정",
+      "SEO 메타데이터 고도화 예정"
     ],
     myRole: [
       "Next.js 프로젝트 구조 구성",
@@ -203,6 +220,11 @@ export const projects: Project[] = [
     validations: [
       "npm run lint로 정적 검사",
       "npm run build로 정적 빌드 확인"
+    ],
+    nextImprovements: [
+      "프로젝트 상세 콘텐츠 보강",
+      "웹 이력서 페이지 구현",
+      "SEO 메타데이터와 오픈그래프 이미지 구성"
     ],
     links: [
       // TODO: 배포 URL로 교체
