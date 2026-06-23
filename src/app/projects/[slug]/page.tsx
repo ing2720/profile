@@ -24,7 +24,7 @@ function DetailList({ items }: { items: string[] }) {
       {items.map((item) => (
         <li className="flex gap-3" key={item}>
           <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
-          <span>{item}</span>
+          <span className="min-w-0 break-words">{item}</span>
         </li>
       ))}
     </ul>
@@ -71,7 +71,7 @@ export default async function ProjectDetailPage({
     <>
       <Header />
       <main>
-        <article className="mx-auto max-w-4xl px-5 py-12 sm:px-6 sm:py-16 lg:px-8">
+        <article className="mx-auto max-w-4xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8">
           <Link
             className="text-sm font-semibold text-slate-600 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
             href="/projects"
@@ -79,14 +79,14 @@ export default async function ProjectDetailPage({
             ← 프로젝트 목록
           </Link>
 
-          <header className="mt-10 pb-10">
-            <p className="text-sm font-semibold uppercase tracking-wide text-slate-500">
+          <header className="mt-8 pb-8 sm:mt-10 sm:pb-10">
+            <p className="text-sm font-semibold uppercase text-slate-500">
               Project
             </p>
-            <h1 className="mt-3 text-4xl font-bold tracking-tight text-slate-950 sm:text-5xl">
+            <h1 className="mt-3 break-words text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
               {project.title}
             </h1>
-            <p className="mt-5 text-xl leading-8 text-slate-700">
+            <p className="mt-5 text-lg leading-8 text-slate-700 sm:text-xl">
               {project.summary}
             </p>
             <div className="mt-6 flex flex-wrap gap-2">

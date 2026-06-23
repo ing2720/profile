@@ -9,7 +9,7 @@ type ContactSectionProps = {
 export function ContactSection({ profile }: ContactSectionProps) {
   return (
     <section className="border-t border-slate-200 bg-slate-950" id="contact">
-      <div className="mx-auto grid max-w-6xl gap-8 px-5 py-16 sm:px-6 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
+      <div className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-16 lg:grid-cols-[1fr_auto] lg:items-center lg:px-8">
         <div>
           <SectionTitle
             eyebrow="Contact"

@@ -18,3 +18,13 @@ body {
   background: #ffffff;
   color: #0f172a;
 }
+
+@media print {
+  html {
+    scroll-behavior: auto;
+  }
+
+  body {
+    font-size: 12px;
+  }
+}

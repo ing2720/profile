@@ -20,14 +20,12 @@ export function SectionTitle({
   return (
     <div className="max-w-3xl">
       {eyebrow ? (
-        <p
-          className={`text-sm font-semibold uppercase tracking-wide ${eyebrowClassName}`}
-        >
+        <p className={`text-sm font-semibold uppercase ${eyebrowClassName}`}>
           {eyebrow}
         </p>
       ) : null}
       <h2
-        className={`mt-2 text-2xl font-bold tracking-tight sm:text-3xl ${titleClassName}`}
+        className={`mt-2 text-2xl font-bold leading-tight sm:text-3xl ${titleClassName}`}
       >
         {title}
       </h2>
