@@ -5,6 +5,7 @@ import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { DetailSection } from "@/components/ui/DetailSection";
 import { PrintButton } from "@/components/ui/PrintButton";
+import { ProfileImage } from "@/components/ui/ProfileImage";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { experiences } from "@/data/experiences";
 import { profile } from "@/data/profile";
@@ -44,19 +45,26 @@ export default function ResumePage() {
         <article className="mx-auto max-w-5xl px-4 py-10 sm:px-6 sm:py-16 lg:px-8 print:max-w-none print:px-0 print:py-0">
           <header className="border-b border-slate-200 pb-10">
             <div className="flex flex-col gap-8 lg:flex-row lg:items-end lg:justify-between">
-              <div className="min-w-0">
-                <p className="text-sm font-semibold uppercase text-slate-500">
-                  Web Resume
-                </p>
-                <h1 className="mt-3 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
-                  {profile.name}
-                </h1>
-                <p className="mt-3 text-xl font-semibold text-slate-800">
-                  {profile.role}
-                </p>
-                <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
-                  {profile.summary}
-                </p>
+              <div className="flex min-w-0 flex-col gap-5 sm:flex-row sm:items-start">
+                <ProfileImage
+                  image={profile.image}
+                  name={profile.name}
+                  size="md"
+                />
+                <div className="min-w-0">
+                  <p className="text-sm font-semibold uppercase text-slate-500">
+                    Web Resume
+                  </p>
+                  <h1 className="mt-3 text-4xl font-bold leading-tight text-slate-950 sm:text-5xl">
+                    {profile.name}
+                  </h1>
+                  <p className="mt-3 text-xl font-semibold text-slate-800">
+                    {profile.role}
+                  </p>
+                  <p className="mt-5 max-w-3xl text-lg leading-8 text-slate-700">
+                    {profile.summary}
+                  </p>
+                </div>
               </div>
               <div className="flex flex-wrap gap-3 lg:justify-end print:hidden">
                 <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
