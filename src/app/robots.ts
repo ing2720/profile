@@ -1,6 +1,6 @@
 import type { MetadataRoute } from "next";
 
-const siteUrl = "https://example.com"; // TODO: 실제 배포 도메인으로 교체
+const siteUrl = "https://profile-sable-alpha.vercel.app"; // TODO: 커스텀 도메인 연결 시 교체
 
 export default function robots(): MetadataRoute.Robots {
   return {
