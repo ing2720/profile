@@ -76,19 +76,19 @@ export default function ResumePage() {
               <div className="rounded-lg border border-slate-200 p-4">
                 <dt className="font-semibold text-slate-950">GitHub</dt>
                 <dd className="mt-2 break-words text-slate-600">
-                  {getDisplayValue(profile.links.github.href, "TODO")}
+                  {getDisplayValue(profile.links.github.href, "준비 중")}
                 </dd>
               </div>
               <div className="rounded-lg border border-slate-200 p-4">
                 <dt className="font-semibold text-slate-950">Email</dt>
                 <dd className="mt-2 break-words text-slate-600">
-                  {getDisplayValue(profile.links.email.href, "TODO")}
+                  {getDisplayValue(profile.links.email.href, "준비 중")}
                 </dd>
               </div>
               <div className="rounded-lg border border-slate-200 p-4">
                 <dt className="font-semibold text-slate-950">PDF Resume</dt>
                 <dd className="mt-2 break-words text-slate-600">
-                  {hasResumePdf ? profile.links.resumePdf.href : "TODO"}
+                  {hasResumePdf ? profile.links.resumePdf.href : "준비 중"}
                 </dd>
               </div>
             </dl>
