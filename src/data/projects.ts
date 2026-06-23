@@ -91,15 +91,13 @@ export const projects: Project[] = [
       "설치 상태 점검 메시지와 복구 안내 개선"
     ],
     links: [
-      // TODO: 실제 저장소 URL로 교체
       {
         label: "GitHub",
-        href: ""
+        href: "https://github.com/ing2720/mwoham"
       },
-      // TODO: 실제 데모 또는 문서 URL이 생기면 교체
       {
-        label: "Demo",
-        href: ""
+        label: "Release",
+        href: "https://github.com/ing2720/mwoham/releases/tag/v1.1.0"
       }
     ]
   },
@@ -167,10 +165,13 @@ export const projects: Project[] = [
       "Docker 기반 로컬 실행 문서 개선"
     ],
     links: [
-      // TODO: 실제 저장소 URL로 교체
       {
         label: "GitHub",
-        href: ""
+        href: "https://github.com/Wizard-Of-Oz-b/Wizard-Of-Oz-be"
+      },
+      {
+        label: "Presentation",
+        href: "https://wizardofoz-seven.vercel.app/"
       }
     ]
   },
