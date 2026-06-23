@@ -1,5 +1,6 @@
 import type { Profile } from "@/data/profile";
 import { ButtonLink } from "@/components/ui/ButtonLink";
+import { ProfileImage } from "@/components/ui/ProfileImage";
 
 type HeroSectionProps = {
   profile: Profile;
@@ -9,6 +10,9 @@ export function HeroSection({ profile }: HeroSectionProps) {
   return (
     <section className="mx-auto grid max-w-6xl gap-8 px-4 py-14 sm:px-6 sm:py-20 lg:grid-cols-[1.35fr_0.85fr] lg:gap-12 lg:px-8">
       <div className="min-w-0">
+        <div className="mb-8 lg:hidden">
+          <ProfileImage image={profile.image} name={profile.name} size="lg" />
+        </div>
         <p className="text-sm font-semibold uppercase text-slate-500">
           {profile.role}
         </p>
@@ -34,6 +38,9 @@ export function HeroSection({ profile }: HeroSectionProps) {
       </div>
 
       <aside className="rounded-lg border border-slate-200 bg-slate-50 p-5 sm:p-6">
+        <div className="mb-6 hidden lg:block">
+          <ProfileImage image={profile.image} name={profile.name} size="lg" />
+        </div>
         <p className="text-sm font-semibold text-slate-500">Focus</p>
         <dl className="mt-5 space-y-5">
           <div>
