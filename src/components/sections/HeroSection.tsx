@@ -29,9 +29,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <ButtonLink href={profile.links.email.href}>
             {profile.links.email.label}
           </ButtonLink>
-          <ButtonLink href={profile.links.resumePdf.href}>
-            {profile.links.resumePdf.label}
-          </ButtonLink>
+          <ButtonLink href="/resume">Resume</ButtonLink>
         </div>
       </div>
 

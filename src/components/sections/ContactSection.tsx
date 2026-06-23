@@ -23,7 +23,7 @@ export function ContactSection({ profile }: ContactSectionProps) {
             {profile.links.email.label}
           </ButtonLink>
           <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
-          <ButtonLink href={profile.links.resumePdf.href}>Resume PDF</ButtonLink>
+          <ButtonLink href="/resume">Resume</ButtonLink>
         </div>
       </div>
     </section>
