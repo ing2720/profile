@@ -23,8 +23,8 @@ export function HeroSection({ profile }: HeroSectionProps) {
           {profile.summary}
         </p>
         <p className="mt-5 max-w-2xl text-base leading-7 text-slate-600">
-          API 설계, 데이터 모델링, 작업 자동화 흐름을 중심으로 백엔드에서
-          시작해 사용 가능한 제품 형태까지 연결하는 프로젝트를 만듭니다.
+          API 설계와 데이터 모델링을 기반으로 백오피스 운영 기능부터 로컬
+          자동화 제품까지, 실제 사용 흐름을 고려한 서비스를 구현합니다.
         </p>
         <div className="mt-8 flex flex-wrap gap-3">
           <ButtonLink href={profile.links.github.href} variant="primary">
@@ -46,7 +46,7 @@ export function HeroSection({ profile }: HeroSectionProps) {
           <div>
             <dt className="font-semibold text-slate-950">Backend</dt>
             <dd className="mt-1 text-sm leading-6 text-slate-600">
-              FastAPI, Django, DRF 기반 API와 로컬 서비스 구조 설계
+              Django Ninja 백오피스 API와 FastAPI 로컬 서비스 구조 설계
             </dd>
           </div>
           <div>

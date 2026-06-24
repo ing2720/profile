@@ -98,15 +98,16 @@ export default function ResumePage() {
           <DetailSection title="자기소개">
             <div className="space-y-4">
               <p>
-                백엔드 기반 서비스 설계와 API/데이터 모델링을 중심으로 웹
-                서비스 구현 경험을 쌓고 있습니다. 기능을 빠르게 붙이는 것보다
-                데이터 흐름, 책임 분리, 검증 가능한 구조를 먼저 정리하려고
-                합니다.
+                데이트팝 백오피스에서 Django Ninja 기반 캠페인·체험단 관리
+                API와 어드민 기능을 구현했습니다. 기존 운영 DB를 연동하며
+                데이터 구조와 서비스 흐름을 파악하고, 필요한 조회·수정 기능을
+                API로 연결했습니다.
               </p>
               <p>
-                Mwoham 프로젝트에서는 FastAPI 로컬 백엔드와 SwiftUI macOS 앱을
-                연결하고, 작업 세션과 이벤트, 메모, 회의 기록을 리포트로
-                정리하는 자동화 제품 흐름을 구현했습니다.
+                교육 운영 과정에서는 백엔드 코드 리뷰와 프로젝트 코칭을
+                담당했습니다. 개인 프로젝트 Mwoham에서는 FastAPI 로컬
+                백엔드와 SwiftUI macOS 앱을 연결하고, 작업 기록을 타임라인과
+                AI 리포트로 정리하는 자동화 흐름을 구현했습니다.
               </p>
             </div>
           </DetailSection>
