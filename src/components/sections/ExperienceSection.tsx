@@ -13,8 +13,8 @@ export function ExperienceSection({ experiences }: ExperienceSectionProps) {
     >
       <SectionTitle
         eyebrow="Experience"
-        title="학습과 프로젝트 경험"
-        description="백엔드 학습 과정, 팀 프로젝트 조율 경험, 개인 프로젝트 구현 경험을 중심으로 정리했습니다."
+        title="실무 및 교육 경력"
+        description="백오피스 백엔드 개발, 교육 운영, 기술 코칭, 프로젝트 관리 경험을 중심으로 정리했습니다."
       />
       <div className="mt-10 space-y-5 sm:space-y-6">
         {experiences.map((experience) => (

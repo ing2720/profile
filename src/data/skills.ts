@@ -6,11 +6,19 @@ export type SkillCategory = {
 export const skillCategories: SkillCategory[] = [
   {
     category: "Backend",
-    skills: ["Python", "FastAPI", "Django", "DRF", "REST API", "pytest"]
+    skills: [
+      "Python",
+      "FastAPI",
+      "Django",
+      "Django Ninja",
+      "DRF",
+      "REST API",
+      "pytest"
+    ]
   },
   {
     category: "Database",
-    skills: ["SQLite", "PostgreSQL", "Alembic", "Redis"]
+    skills: ["SQLite", "PostgreSQL", "Alembic", "Redis", "Multi-DB"]
   },
   {
     category: "Infra / Tools",
