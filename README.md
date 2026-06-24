@@ -86,7 +86,7 @@ public/
 ## 정적 파일
 
 - `public/og-image.png` - Open Graph / Twitter card 기본 이미지 위치
-- `public/images/profile/profile.jpg` - 프로필 사진 기본 위치
+- `public/images/profile.jpg` - 프로필 사진 기본 위치
 - `public/images/` - 프로젝트 또는 페이지에서 사용할 이미지 위치
 
 이력서는 `/resume` 페이지에서 브라우저 인쇄 기능으로 PDF 저장할 수 있습니다. 별도 `public/resume.pdf` 파일은 필요하지 않습니다.
