@@ -4,6 +4,7 @@ export type ProjectLink = {
 };
 
 export type Project = {
+  order: number;
   slug: string;
   title: string;
   summary: string;
@@ -25,6 +26,7 @@ export type Project = {
 
 export const projects: Project[] = [
   {
+    order: 1,
     slug: "mwoham",
     title: "Mwoham",
     summary: "macOS 로컬 작업 기록 자동화 서비스",
@@ -34,7 +36,7 @@ export const projects: Project[] = [
       "SQLite",
       "Alembic",
       "SwiftUI",
-      "Gemini",
+      "LLM",
       "STT",
       "pytest",
       "ruff"
@@ -43,7 +45,7 @@ export const projects: Project[] = [
       "macOS 앱과 FastAPI 로컬 백엔드 연동",
       "작업 세션, 이벤트, 메모, 회의 기록, 리포트 도메인 설계",
       "TimelineBuilder 기반 일일 타임라인 생성",
-      "Gemini 기반 리포트 생성",
+      "LLM 기반 리포트 생성",
       "민감정보 마스킹 후 AI 요약 요청",
       "Release v1.1.0 기준 lightweight/full DMG 패키징 구조 정리"
     ],
@@ -52,14 +54,14 @@ export const projects: Project[] = [
     problem:
       "개발, 학습, 회의 중 작업 기록은 앱 사용 흐름, 수동 메모, 회의 내용, 개발 이벤트로 흩어지기 쉽습니다. 하루가 끝난 뒤 실제로 무엇을 했는지 다시 정리하려면 여러 기록을 다시 찾아야 하고, 리포트 작성에도 반복 시간이 듭니다.",
     solution:
-      "작업 세션, 앱/창 이벤트, 수동 메모, 회의 STT 기록을 하나의 일일 타임라인으로 합치고, TimelineBuilder로 흐름을 정리한 뒤 Gemini 요약을 통해 리포트 초안을 생성합니다. 원본 화면이나 음성 파일을 장기 저장하는 방식보다 로컬 텍스트 기록을 중심에 두고, AI 요청 전 민감정보 마스킹을 적용했습니다.",
+      "작업 세션, 앱/창 이벤트, 수동 메모, 회의 STT 기록을 하나의 일일 타임라인으로 합치고, TimelineBuilder로 흐름을 정리한 뒤 Gemini/OpenAI 기반 LLM 연동으로 리포트 초안을 생성합니다. 원본 화면이나 음성 파일을 장기 저장하는 방식보다 로컬 텍스트 기록을 중심에 두고, AI 요청 전 민감정보 마스킹을 적용했습니다.",
     features: [
       "작업 세션 시작, 일시정지, 재개, 종료 흐름",
       "앱/창 기반 작업 이벤트 기록",
       "수동 메모 기록",
       "회의 STT 기록",
       "TimelineBuilder 기반 일일 타임라인 생성",
-      "Gemini 기반 일일 리포트 생성",
+      "Gemini/OpenAI 기반 LLM 연동을 통한 일일 리포트 생성",
       "AI 요청 전 민감정보 마스킹",
       "macOS SwiftUI 앱과 FastAPI 로컬 백엔드 연동",
       "lightweight/full DMG 패키징",
@@ -72,7 +74,7 @@ export const projects: Project[] = [
       "FastAPI 로컬 백엔드 API 설계",
       "작업 세션, 이벤트, 메모, 리포트 도메인 설계",
       "TimelineBuilder 흐름 구성",
-      "Gemini 요약 연동 및 fallback 흐름 구성",
+      "LLM Provider 연동 및 fallback 흐름 구성",
       "SwiftUI macOS 앱과 로컬 API 연동",
       "lightweight/full DMG 배포 구조 설계",
       "Release v1.1.0 기준 패키징/설치 안정화"
@@ -125,6 +127,7 @@ export const projects: Project[] = [
     ]
   },
   {
+    order: 3,
     slug: "django-commerce",
     title: "Django Commerce API",
     summary: "Django 기반 커머스/배송 추적 API",
@@ -199,10 +202,11 @@ export const projects: Project[] = [
     ]
   },
   {
+    order: 2,
     slug: "portfolio",
     title: "Portfolio Website",
     summary: "Next.js 기반 웹 이력서/포트폴리오 사이트",
-    isFeatured: false,
+    isFeatured: true,
     stacks: ["Next.js", "TypeScript", "Tailwind CSS", "Vercel"],
     highlights: [
       "정적 데이터 기반 콘텐츠 관리",
@@ -263,4 +267,10 @@ export const projects: Project[] = [
   }
 ];
 
-export const featuredProjects = projects.filter((project) => project.isFeatured);
+export const orderedProjects = [...projects].sort(
+  (a, b) => a.order - b.order
+);
+
+export const featuredProjects = orderedProjects.filter(
+  (project) => project.isFeatured
+);

@@ -11,18 +11,6 @@ import { profile } from "@/data/profile";
 import { featuredProjects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
 
-const orderedFeaturedProjects = [...featuredProjects].sort((a, b) => {
-  if (a.slug === "mwoham") {
-    return -1;
-  }
-
-  if (b.slug === "mwoham") {
-    return 1;
-  }
-
-  return 0;
-});
-
 export default function Home() {
   return (
     <>
@@ -30,7 +18,7 @@ export default function Home() {
       <main>
         <HeroSection profile={profile} />
         <AboutSection profile={profile} />
-        <FeaturedProjectsSection projects={orderedFeaturedProjects} />
+        <FeaturedProjectsSection projects={featuredProjects} />
         <SkillsSection skillCategories={skillCategories} />
         <ExperienceSection experiences={experiences} />
         <ContactSection profile={profile} />

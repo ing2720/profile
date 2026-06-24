@@ -3,24 +3,12 @@ import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { SectionTitle } from "@/components/ui/SectionTitle";
-import { projects } from "@/data/projects";
+import { orderedProjects } from "@/data/projects";
 
 export const metadata: Metadata = {
   title: "Projects | 이형운",
   description: "이형운 백엔드 개발자 프로젝트 목록"
 };
-
-const orderedProjects = [...projects].sort((a, b) => {
-  if (a.slug === "mwoham") {
-    return -1;
-  }
-
-  if (b.slug === "mwoham") {
-    return 1;
-  }
-
-  return 0;
-});
 
 export default function ProjectsPage() {
   return (

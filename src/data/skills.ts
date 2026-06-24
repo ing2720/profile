@@ -30,6 +30,6 @@ export const skillCategories: SkillCategory[] = [
   },
   {
     category: "macOS / AI",
-    skills: ["SwiftUI", "macOS", "STT", "Gemini", "DMG packaging"]
+    skills: ["SwiftUI", "macOS", "STT", "LLM", "DMG packaging"]
   }
 ];
