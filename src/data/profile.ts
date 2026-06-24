@@ -24,7 +24,7 @@ export const profile: Profile = {
   summary:
     "백엔드 기반 서비스 설계와 자동화 제품 구현 경험을 쌓고 있는 개발자입니다.",
   image: {
-    src: "/images/profile/profile.jpg",
+    src: "/images/profile.jpg",
     alt: "이형운 프로필 사진"
   },
   links: {
