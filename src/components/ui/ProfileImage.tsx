@@ -11,8 +11,8 @@ type ProfileImageProps = {
 };
 
 const sizeClassNames = {
-  md: "h-24 w-24 print:h-16 print:w-16",
-  lg: "h-32 w-32 sm:h-36 sm:w-36 lg:h-40 lg:w-40"
+  md: "h-28 w-24 print:h-20 print:w-16",
+  lg: "h-40 w-32 sm:h-44 sm:w-36 lg:h-48 lg:w-40"
 };
 
 function getInitials(name: string) {
@@ -36,7 +36,7 @@ function getInitials(name: string) {
 
 export function ProfileImage({ image, name, size = "md" }: ProfileImageProps) {
   const [hasError, setHasError] = useState(false);
-  const className = `${sizeClassNames[size]} shrink-0 overflow-hidden rounded-full border border-slate-200 bg-slate-100 shadow-sm`;
+  const className = `${sizeClassNames[size]} shrink-0 overflow-hidden rounded-2xl border border-slate-200 bg-white shadow-sm`;
 
   if (hasError) {
     return (
@@ -54,8 +54,8 @@ export function ProfileImage({ image, name, size = "md" }: ProfileImageProps) {
     <div className={className}>
       <Image
         alt={image.alt}
-        className="h-full w-full object-cover"
-        height={size === "lg" ? 160 : 96}
+        className="h-full w-full scale-110 object-cover object-center"
+        height={size === "lg" ? 192 : 112}
         onError={() => setHasError(true)}
         priority={size === "lg"}
         src={image.src}

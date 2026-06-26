@@ -1,10 +1,10 @@
 import Link from "next/link";
 import { profile } from "@/data/profile";
+import { ContactModalTrigger } from "@/components/layout/ContactModalTrigger";
 
 const navigationItems = [
   { label: "Projects", href: "/projects" },
-  { label: "Resume", href: "/resume" },
-  { label: "Contact", href: "/#contact" }
+  { label: "Resume", href: "/resume" }
 ];
 
 export function Header() {
@@ -30,6 +30,7 @@ export function Header() {
               {item.label}
             </Link>
           ))}
+          <ContactModalTrigger profile={profile} />
         </nav>
       </div>
     </header>

@@ -16,8 +16,8 @@ export function FeaturedProjectsSection({
     >
       <SectionTitle
         eyebrow="Projects"
-        title="백엔드 구조와 제품 완성도를 함께 다룬 프로젝트"
-        description="Mwoham을 중심으로 로컬 백엔드, API 설계, 비동기 처리, 정적 배포 경험을 정리했습니다."
+        title="백엔드에서 시작해 제품 흐름까지 확장한 프로젝트"
+        description="로컬 자동화 앱, 커머스 API, 포트폴리오 웹사이트를 통해 API 설계, 데이터 흐름, 배포와 사용 인터페이스를 함께 구성했습니다."
       />
       <div className="mt-10 grid items-stretch gap-5 md:gap-6 lg:grid-cols-2">
         {projects.map((project) => (
