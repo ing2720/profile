@@ -22,7 +22,7 @@ export const profile: Profile = {
   name: "이형운",
   role: "Backend Developer",
   summary:
-    "백엔드를 중심으로 API, 데이터 흐름, 자동화 도구, 로컬 앱 연동을 설계하고 구현하는 개발자입니다.",
+    "백엔드에서 시작해 사용자가 만나는 실행 흐름까지 구현합니다.",
   image: {
     src: "/images/profile.jpg",
     alt: "이형운 프로필 사진"
