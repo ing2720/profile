@@ -1,6 +1,6 @@
 "use client";
 
-import { useEffect, useId, useState } from "react";
+import { useEffect, useId, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import type { Profile } from "@/data/profile";
 import { ButtonLink } from "@/components/ui/ButtonLink";
@@ -12,6 +12,8 @@ type ContactModalTriggerProps = {
 export function ContactModalTrigger({ profile }: ContactModalTriggerProps) {
   const [isOpen, setIsOpen] = useState(false);
   const titleId = useId();
+  const triggerRef = useRef<HTMLButtonElement>(null);
+  const panelRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     if (!isOpen) {
@@ -24,10 +26,29 @@ export function ContactModalTrigger({ profile }: ContactModalTriggerProps) {
       }
     }
 
+    function handlePointerDown(event: PointerEvent) {
+      const target = event.target;
+
+      if (!(target instanceof Node)) {
+        return;
+      }
+
+      if (
+        triggerRef.current?.contains(target) ||
+        panelRef.current?.contains(target)
+      ) {
+        return;
+      }
+
+      setIsOpen(false);
+    }
+
     document.addEventListener("keydown", handleKeyDown);
+    document.addEventListener("pointerdown", handlePointerDown);
 
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
+      document.removeEventListener("pointerdown", handlePointerDown);
     };
   }, [isOpen]);
 
@@ -36,6 +57,7 @@ export function ContactModalTrigger({ profile }: ContactModalTriggerProps) {
       <button
         className="whitespace-nowrap text-sm font-medium text-slate-600 hover:text-slate-950 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900"
         onClick={() => setIsOpen(true)}
+        ref={triggerRef}
         type="button"
       >
         Contact
@@ -43,21 +65,11 @@ export function ContactModalTrigger({ profile }: ContactModalTriggerProps) {
 
       {isOpen
         ? createPortal(
-            <div
-              className="fixed inset-0 z-50"
-              onMouseDown={() => setIsOpen(false)}
-            >
-          <button
-            aria-label="연락 팝업 닫기"
-                className="absolute inset-0 cursor-default bg-transparent"
-            onClick={() => setIsOpen(false)}
-            type="button"
-          />
           <div
             aria-labelledby={titleId}
             aria-modal="true"
-                className="absolute right-4 top-12 z-10 w-[calc(100%-2rem)] max-w-sm rounded-lg border border-slate-200 bg-white p-5 shadow-xl sm:right-6 sm:top-14 sm:p-6 lg:right-8 xl:right-[calc((100vw-72rem)/2+2rem)]"
-                onMouseDown={(event) => event.stopPropagation()}
+            className="fixed right-4 top-12 z-50 w-[calc(100%-2rem)] max-w-sm rounded-lg border border-slate-200 bg-white p-5 shadow-xl sm:right-6 sm:top-14 sm:p-6 lg:right-8 xl:right-[calc((100vw-72rem)/2+2rem)]"
+            ref={panelRef}
             role="dialog"
           >
             <button
@@ -84,8 +96,7 @@ export function ContactModalTrigger({ profile }: ContactModalTriggerProps) {
               <ButtonLink href={profile.links.github.href}>GitHub</ButtonLink>
               <ButtonLink href="/resume">Resume</ButtonLink>
             </div>
-          </div>
-            </div>,
+          </div>,
             document.body
           )
         : null}

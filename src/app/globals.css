@@ -19,6 +19,11 @@ body {
   color: #0f172a;
 }
 
+@page {
+  size: A4;
+  margin: 12mm;
+}
+
 @media print {
   html {
     scroll-behavior: auto;
