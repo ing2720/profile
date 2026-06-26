@@ -9,25 +9,13 @@ import { ProfileImage } from "@/components/ui/ProfileImage";
 import { ProjectCard } from "@/components/ui/ProjectCard";
 import { experiences } from "@/data/experiences";
 import { profile } from "@/data/profile";
-import { projects } from "@/data/projects";
+import { orderedProjects } from "@/data/projects";
 import { skillCategories } from "@/data/skills";
 
 export const metadata: Metadata = {
   title: "Resume | 이형운",
   description: "이형운 백엔드 개발자 웹 이력서"
 };
-
-const orderedProjects = [...projects].sort((a, b) => {
-  if (a.slug === "mwoham") {
-    return -1;
-  }
-
-  if (b.slug === "mwoham") {
-    return 1;
-  }
-
-  return 0;
-});
 
 function hasUsableHref(href: string) {
   return href.length > 0 && !href.toLowerCase().includes("todo");

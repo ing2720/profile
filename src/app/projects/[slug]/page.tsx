@@ -6,7 +6,11 @@ import { Header } from "@/components/layout/Header";
 import { Badge } from "@/components/ui/Badge";
 import { ButtonLink } from "@/components/ui/ButtonLink";
 import { DetailSection } from "@/components/ui/DetailSection";
-import { projects } from "@/data/projects";
+import { ProjectGallery } from "@/components/ui/ProjectGallery";
+import {
+  projects,
+  type TroubleshootingCase
+} from "@/data/projects";
 
 type ProjectDetailPageProps = {
   params: Promise<{
@@ -20,14 +24,74 @@ function findProject(slug: string) {
 
 function DetailList({ items }: { items: string[] }) {
   return (
-    <ul className="space-y-3">
+    <ul className="space-y-3 leading-[17px]">
       {items.map((item) => (
         <li className="flex gap-3" key={item}>
-          <span className="mt-3 h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
+          <span className="mt-[5px] h-1.5 w-1.5 shrink-0 rounded-full bg-slate-400" />
           <span className="min-w-0 break-words">{item}</span>
         </li>
       ))}
     </ul>
+  );
+}
+
+function TroubleshootingList({
+  cases
+}: {
+  cases: TroubleshootingCase[];
+}) {
+  return (
+    <div className="space-y-5">
+      {cases.map((item, index) => (
+        <details
+          className="group rounded-lg border border-slate-200 print:break-inside-avoid"
+          key={item.title}
+        >
+          <summary className="flex cursor-pointer list-none items-start justify-between gap-4 p-5 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-slate-900 sm:p-6 [&::-webkit-details-marker]:hidden">
+            <span className="min-w-0">
+              <span className="block text-sm font-semibold text-slate-500">
+                Case {index + 1}
+              </span>
+              <span className="mt-2 block text-lg font-bold leading-7 text-slate-950">
+                {item.title}
+              </span>
+            </span>
+            <span
+              aria-hidden="true"
+              className="mt-1 shrink-0 text-xl leading-none text-slate-500 transition-transform group-open:rotate-45"
+            >
+              +
+            </span>
+          </summary>
+          <div className="border-t border-slate-200 px-5 pb-5 sm:px-6 sm:pb-6">
+            <TroubleshootingDetails item={item} />
+          </div>
+        </details>
+      ))}
+    </div>
+  );
+}
+
+function TroubleshootingDetails({
+  item
+}: {
+  item: TroubleshootingCase;
+}) {
+  return (
+    <dl className="mt-5 space-y-4">
+      <div>
+        <dt className="font-semibold text-slate-900">이슈</dt>
+        <dd className="mt-1 break-words">{item.issue}</dd>
+      </div>
+      <div>
+        <dt className="font-semibold text-slate-900">해결</dt>
+        <dd className="mt-1 break-words">{item.solution}</dd>
+      </div>
+      <div>
+        <dt className="font-semibold text-slate-900">결과</dt>
+        <dd className="mt-1 break-words">{item.outcome}</dd>
+      </div>
+    </dl>
   );
 }
 
@@ -96,6 +160,12 @@ export default async function ProjectDetailPage({
             </div>
           </header>
 
+          {project.images ? (
+            <DetailSection title="Screenshots">
+              <ProjectGallery images={project.images} />
+            </DetailSection>
+          ) : null}
+
           <DetailSection title="Overview">
             <p>{project.overview}</p>
           </DetailSection>
@@ -113,16 +183,38 @@ export default async function ProjectDetailPage({
           </DetailSection>
 
           <DetailSection title="Tech Stack">
-            <div className="flex flex-wrap gap-2">
-              {project.stacks.map((stack) => (
-                <Badge key={stack}>{stack}</Badge>
-              ))}
-            </div>
+            {project.techStackGroups ? (
+              <div className="grid gap-4 sm:grid-cols-2">
+                {project.techStackGroups.map((group) => (
+                  <div
+                    className="rounded-lg border border-slate-200 bg-white p-4"
+                    key={group.category}
+                  >
+                    <h3 className="text-sm font-semibold text-slate-950">
+                      {group.category}
+                    </h3>
+                    <div className="mt-3 flex flex-wrap gap-2">
+                      {group.items.map((item) => (
+                        <Badge key={item}>{item}</Badge>
+                      ))}
+                    </div>
+                  </div>
+                ))}
+              </div>
+            ) : (
+              <div className="flex flex-wrap gap-2">
+                {project.stacks.map((stack) => (
+                  <Badge key={stack}>{stack}</Badge>
+                ))}
+              </div>
+            )}
           </DetailSection>
 
-          <DetailSection title="My Role">
-            <DetailList items={project.myRole} />
-          </DetailSection>
+          {project.myRole ? (
+            <DetailSection title="My Role">
+              <DetailList items={project.myRole} />
+            </DetailSection>
+          ) : null}
 
           {project.technicalDecisions ? (
             <DetailSection title="Technical Decisions">
@@ -134,12 +226,18 @@ export default async function ProjectDetailPage({
             <DetailList items={project.challenges} />
           </DetailSection>
 
+          {project.troubleshooting ? (
+            <DetailSection title="Troubleshooting">
+              <TroubleshootingList cases={project.troubleshooting} />
+            </DetailSection>
+          ) : null}
+
           <DetailSection title="Improvements">
             <DetailList items={project.improvements} />
           </DetailSection>
 
-          <DetailSection title="Validations">
-            <DetailList items={project.validations} />
+          <DetailSection title="Next Improvements">
+            <DetailList items={project.nextImprovements} />
           </DetailSection>
 
           <DetailSection title="Links">
@@ -156,10 +254,6 @@ export default async function ProjectDetailPage({
                 관련 링크는 준비되는 대로 추가할 예정입니다.
               </p>
             )}
-          </DetailSection>
-
-          <DetailSection title="Next Improvements">
-            <DetailList items={project.nextImprovements} />
           </DetailSection>
         </article>
       </main>
