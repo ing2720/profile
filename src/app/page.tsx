@@ -1,7 +1,6 @@
 import { Footer } from "@/components/layout/Footer";
 import { Header } from "@/components/layout/Header";
 import { AboutSection } from "@/components/sections/AboutSection";
-import { ContactSection } from "@/components/sections/ContactSection";
 import { ExperienceSection } from "@/components/sections/ExperienceSection";
 import { FeaturedProjectsSection } from "@/components/sections/FeaturedProjectsSection";
 import { HeroSection } from "@/components/sections/HeroSection";
@@ -17,11 +16,10 @@ export default function Home() {
       <Header />
       <main>
         <HeroSection profile={profile} />
-        <AboutSection profile={profile} />
+        <AboutSection />
         <FeaturedProjectsSection projects={featuredProjects} />
         <SkillsSection skillCategories={skillCategories} />
         <ExperienceSection experiences={experiences} />
-        <ContactSection profile={profile} />
       </main>
       <Footer />
     </>
